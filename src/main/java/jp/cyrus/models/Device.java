@@ -1,13 +1,10 @@
 package jp.cyrus.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * Device.
  *
  * @author cyrus
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Device {
 
 	/**
