@@ -25,7 +25,7 @@ public abstract class TikTok4j {
 	 * @return
 	 */
 	public Device deviceRegister() {
-		throw new RuntimeException("Method not implemented.");
+		throw new UnsupportedOperationException("Method not implemented.");
 	}
 
 	/**
@@ -36,7 +36,7 @@ public abstract class TikTok4j {
 	 * @return
 	 */
 	public JsonNode loginWithEmail(String email, String password) {
-		throw new RuntimeException("Method not implemented.");
+		throw new UnsupportedOperationException("Method not implemented.");
 	}
 
 	/**
@@ -45,7 +45,7 @@ public abstract class TikTok4j {
 	 * @return
 	 */
 	public JsonNode feed() {
-		throw new RuntimeException("Method not implemented.");
+		throw new UnsupportedOperationException("Method not implemented.");
 	}
 
 	/**
@@ -57,7 +57,7 @@ public abstract class TikTok4j {
 	 * @return
 	 */
 	public JsonNode awemePost(long userId, int maxCursor, int count) {
-		throw new RuntimeException("Method not implemented.");
+		throw new UnsupportedOperationException("Method not implemented.");
 	}
 
 	/**
@@ -69,7 +69,7 @@ public abstract class TikTok4j {
 	 * @return
 	 */
 	public JsonNode awemeFavorite(long userId, int maxCursor, int count) {
-		throw new RuntimeException("Method not implemented.");
+		throw new UnsupportedOperationException("Method not implemented.");
 	}
 
 	/**
@@ -79,7 +79,7 @@ public abstract class TikTok4j {
 	 * @return
 	 */
 	public JsonNode user(long userId) {
-		throw new RuntimeException("Method not implemented.");
+		throw new UnsupportedOperationException("Method not implemented.");
 	}
 
 	/**
@@ -89,7 +89,7 @@ public abstract class TikTok4j {
 	 * @return
 	 */
 	public JsonNode userFollowingList(long userId) {
-		throw new RuntimeException("Method not implemented.");
+		throw new UnsupportedOperationException("Method not implemented.");
 	}
 
 	/**
@@ -99,7 +99,7 @@ public abstract class TikTok4j {
 	 * @return
 	 */
 	public JsonNode userFollowerList(long userId) {
-		throw new RuntimeException("Method not implemented.");
+		throw new UnsupportedOperationException("Method not implemented.");
 	}
 
 	/**
@@ -110,7 +110,7 @@ public abstract class TikTok4j {
 	 * @return
 	 */
 	public JsonNode commentList(long awemeId, int cursor) {
-		throw new RuntimeException("Method not implemented.");
+		throw new UnsupportedOperationException("Method not implemented.");
 	}
 
 	/**
@@ -120,7 +120,7 @@ public abstract class TikTok4j {
 	 * @return
 	 */
 	public JsonNode categoryList(int cursor) {
-		throw new RuntimeException("Method not implemented.");
+		throw new UnsupportedOperationException("Method not implemented.");
 	}
 
 	/**
@@ -130,8 +130,8 @@ public abstract class TikTok4j {
 	 * @param cursor
 	 * @return
 	 */
-	public JsonNode v2ChallengeAweme(long chId, int cursor) {
-		throw new RuntimeException("Method not implemented.");
+	public JsonNode challengeAweme(long chId, int cursor) {
+		throw new UnsupportedOperationException("Method not implemented.");
 	}
 
 	/**
@@ -140,8 +140,8 @@ public abstract class TikTok4j {
 	 * @param chId
 	 * @return
 	 */
-	public JsonNode v2ChallengeDetail(long chId) {
-		throw new RuntimeException("Method not implemented.");
+	public JsonNode challengeDetail(long chId) {
+		throw new UnsupportedOperationException("Method not implemented.");
 	}
 
 	/**
@@ -151,8 +151,8 @@ public abstract class TikTok4j {
 	 * @param cursor
 	 * @return
 	 */
-	public JsonNode v2SearchDiscover(String keyword, int cursor) {
-		throw new RuntimeException("Method not implemented.");
+	public JsonNode searchDiscover(String keyword, int cursor) {
+		throw new UnsupportedOperationException("Method not implemented.");
 	}
 
 	/**
@@ -162,8 +162,8 @@ public abstract class TikTok4j {
 	 * @param cursor
 	 * @return
 	 */
-	public JsonNode v2SearchMusic(String keyword, int cursor) {
-		throw new RuntimeException("Method not implemented.");
+	public JsonNode searchMusic(String keyword, int cursor) {
+		throw new UnsupportedOperationException("Method not implemented.");
 	}
 
 	/**
@@ -173,7 +173,66 @@ public abstract class TikTok4j {
 	 * @param cursor
 	 * @return
 	 */
-	public JsonNode v2SearchChallenge(String keyword, int cursor) {
-		throw new RuntimeException("Method not implemented.");
+	public JsonNode searchChallenge(String keyword, int cursor) {
+		throw new UnsupportedOperationException("Method not implemented.");
+	}
+
+	/**
+	 * Get search video data.
+	 *
+	 * @param keyword
+	 * @param cursor
+	 * @return
+	 */
+	public JsonNode searchItem(String keyword, int cursor) {
+		throw new UnsupportedOperationException("Method not implemented.");
+	}
+
+	/**
+	 * Get goods data.
+	 *
+	 * @param userId
+	 * @param cursor
+	 * @return
+	 */
+	public JsonNode userPromotions(long userId, int cursor) {
+		throw new UnsupportedOperationException("Method not implemented.");
+	}
+
+	/**
+	 * Get live video data.
+	 *
+	 * @param cursor
+	 * @return
+	 */
+	public JsonNode roomFeed(int cursor) {
+		throw new UnsupportedOperationException("Method not implemented.");
+	}
+
+	/**
+	 * Get hot topic data.
+	 *
+	 * @return
+	 */
+	public JsonNode hotsearchWord() {
+		throw new UnsupportedOperationException("Method not implemented.");
+	}
+
+	/**
+	 * Get hot video data.
+	 *
+	 * @return
+	 */
+	public JsonNode hotsearchAweme() {
+		throw new UnsupportedOperationException("Method not implemented.");
+	}
+
+	/**
+	 * Get hot energy data.
+	 *
+	 * @return
+	 */
+	public JsonNode hotsearchEnergy() {
+		throw new UnsupportedOperationException("Method not implemented.");
 	}
 }

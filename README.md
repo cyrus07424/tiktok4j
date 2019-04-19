@@ -1,2 +1,2 @@
 # tiktok4j
-Unofficial TikTok API
+Unofficial TikTok/DouYin API
