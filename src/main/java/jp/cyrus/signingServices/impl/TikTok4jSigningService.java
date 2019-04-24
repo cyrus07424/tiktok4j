@@ -12,7 +12,7 @@ public class TikTok4jSigningService implements SigningService {
 
 	@Override
 	public String signUrl(String url, long ts, long deviceId) {
-		// TODO
-		return url;
+		// FIXME
+		return url + "&as=a1qwert123&cp=cbfhckdckkde1";
 	}
 }

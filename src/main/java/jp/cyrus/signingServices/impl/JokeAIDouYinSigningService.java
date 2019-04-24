@@ -32,7 +32,7 @@ public class JokeAIDouYinSigningService implements SigningService {
 			String parameterString = JsonHelper.getObjectMapper().writeValueAsString(requestData);
 
 			// Create request
-			HttpPost httpPost = new HttpPost(Configurations.JOKE_AI_DOUYIN_API_BASE_URL + "/sign/");
+			HttpPost httpPost = new HttpPost(Configurations.JOKE_AI_DOUYIN_API_BASE_URL + "/sign");
 			httpPost.setHeader("Content-type", "application/json;");
 			httpPost.setEntity(new StringEntity(parameterString, StandardCharsets.UTF_8));
 			try (CloseableHttpClient client = HttpClientBuilder.create().build();
