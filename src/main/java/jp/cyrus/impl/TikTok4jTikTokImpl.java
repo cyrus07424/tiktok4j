@@ -64,19 +64,13 @@ public class TikTok4jTikTokImpl extends TikTok4j {
 	@Override
 	public Device deviceRegister() {
 		if (device == null) {
-			try {
-				// FIXME
-				device = new JokeAITikTokImpl().deviceRegister();
-			} catch (Exception e) {
-				e.printStackTrace();
-
-				// Create dummy data
-				device = new Device();
-				device.install_id = 6680910656474695426L;
-				device.device_id = 6680907123225904642L;
-				device.ssid = UUID.randomUUID().toString();
-				device.server_time = System.currentTimeMillis() / 1000;
-			}
+			// Create dummy data
+			device = new Device();
+			device.new_user = 1;
+			device.install_id = 6683748580261431000L;
+			device.device_id = 6683746146131544000L;
+			device.ssid = UUID.randomUUID().toString();
+			device.server_time = TikTokLogicHelper.getServerTime();
 		}
 		return device;
 	}
@@ -91,13 +85,13 @@ public class TikTok4jTikTokImpl extends TikTok4j {
 			Map<String, Object> queryParameterMap = getDefaultQueryString();
 
 			// Get URL
-			String apiUrl = API_BASE_URL + "/passport/user/login";
-			String apiUrlWithParameter = UrlHelper.addQueryStringToUrl(apiUrl, queryParameterMap);
-			System.out.println("url = " + apiUrlWithParameter);
+			String url = API_BASE_URL + "/passport/user/login";
+			String urlWithParameter = UrlHelper.addQueryParameterToUrl(url, queryParameterMap);
+			System.out.println("url = " + urlWithParameter);
 
 			// Get signed URL
 			String signedUrl = signingService.signUrl(
-					apiUrlWithParameter, TikTokLogicHelper.getServerTime(), device.device_id);
+					urlWithParameter, TikTokLogicHelper.getServerTime(), device.device_id);
 			System.out.println("signedUrl = " + signedUrl);
 
 			// Create request paramater
@@ -142,6 +136,9 @@ public class TikTok4jTikTokImpl extends TikTok4j {
 
 	@Override
 	public JsonNode feed() {
+		// Get device info
+		Device device = deviceRegister();
+
 		String url = API_BASE_URL + "/aweme/v1/feed";
 		Map<String, Object> queryParameterMap = new LinkedHashMap<>();
 		queryParameterMap.put("count", 20);
@@ -151,7 +148,15 @@ public class TikTok4jTikTokImpl extends TikTok4j {
 		queryParameterMap.put("is_cold_start", 1);
 		queryParameterMap.put("pull_type", 1);
 		queryParameterMap.putAll(getDefaultQueryString());
-		return getHttpResponse(UrlHelper.addQueryStringToUrl(url, queryParameterMap));
+
+		// Get URL
+		String urlWithParameter = UrlHelper.addQueryParameterToUrl(url, queryParameterMap);
+
+		// Get signed URL
+		String signedUrl = signingService.signUrl(
+				urlWithParameter, TikTokLogicHelper.getServerTime(), device.device_id);
+
+		return getHttpResponse(signedUrl);
 	}
 
 	/**
@@ -233,5 +238,4 @@ public class TikTok4jTikTokImpl extends TikTok4j {
 			throw new RuntimeException(e);
 		}
 	}
-
 }

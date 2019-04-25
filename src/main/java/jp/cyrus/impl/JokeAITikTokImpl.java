@@ -44,7 +44,7 @@ public class JokeAITikTokImpl extends TikTok4j {
 		queryParameterMap.put("user_id", userId);
 		queryParameterMap.put("max_cursor", maxCursor);
 		queryParameterMap.put("count", count);
-		return HttpClientHelper.getHttpResponse(UrlHelper.addQueryStringToUrl(url, queryParameterMap)).get(KEY_DATA);
+		return HttpClientHelper.getHttpResponse(UrlHelper.addQueryParameterToUrl(url, queryParameterMap)).get(KEY_DATA);
 	}
 
 	@Override
@@ -54,7 +54,7 @@ public class JokeAITikTokImpl extends TikTok4j {
 		queryParameterMap.put("user_id", userId);
 		queryParameterMap.put("max_cursor", maxCursor);
 		queryParameterMap.put("count", count);
-		return HttpClientHelper.getHttpResponse(UrlHelper.addQueryStringToUrl(url, queryParameterMap)).get(KEY_DATA);
+		return HttpClientHelper.getHttpResponse(UrlHelper.addQueryParameterToUrl(url, queryParameterMap)).get(KEY_DATA);
 	}
 
 	@Override
@@ -62,7 +62,7 @@ public class JokeAITikTokImpl extends TikTok4j {
 		String url = Configurations.JOKE_AI_TIKTOK_API_BASE_URL + "/user";
 		Map<String, Object> queryParameterMap = new LinkedHashMap<>();
 		queryParameterMap.put("user_id", userId);
-		return HttpClientHelper.getHttpResponse(UrlHelper.addQueryStringToUrl(url, queryParameterMap)).get(KEY_DATA);
+		return HttpClientHelper.getHttpResponse(UrlHelper.addQueryParameterToUrl(url, queryParameterMap)).get(KEY_DATA);
 	}
 
 	@Override
@@ -71,7 +71,7 @@ public class JokeAITikTokImpl extends TikTok4j {
 		Map<String, Object> queryParameterMap = new LinkedHashMap<>();
 		queryParameterMap.put("user_id", userId);
 		queryParameterMap.put("max_time", TikTokLogicHelper.getServerTime());
-		return HttpClientHelper.getHttpResponse(UrlHelper.addQueryStringToUrl(url, queryParameterMap)).get(KEY_DATA);
+		return HttpClientHelper.getHttpResponse(UrlHelper.addQueryParameterToUrl(url, queryParameterMap)).get(KEY_DATA);
 	}
 
 	@Override
@@ -80,7 +80,7 @@ public class JokeAITikTokImpl extends TikTok4j {
 		Map<String, Object> queryParameterMap = new LinkedHashMap<>();
 		queryParameterMap.put("user_id", userId);
 		queryParameterMap.put("max_time", TikTokLogicHelper.getServerTime());
-		return HttpClientHelper.getHttpResponse(UrlHelper.addQueryStringToUrl(url, queryParameterMap)).get(KEY_DATA);
+		return HttpClientHelper.getHttpResponse(UrlHelper.addQueryParameterToUrl(url, queryParameterMap)).get(KEY_DATA);
 	}
 
 	@Override
@@ -89,7 +89,7 @@ public class JokeAITikTokImpl extends TikTok4j {
 		Map<String, Object> queryParameterMap = new LinkedHashMap<>();
 		queryParameterMap.put("aweme_id", awemeId);
 		queryParameterMap.put("cursor", cursor);
-		return HttpClientHelper.getHttpResponse(UrlHelper.addQueryStringToUrl(url, queryParameterMap)).get(KEY_DATA);
+		return HttpClientHelper.getHttpResponse(UrlHelper.addQueryParameterToUrl(url, queryParameterMap)).get(KEY_DATA);
 	}
 
 	@Override
@@ -97,7 +97,7 @@ public class JokeAITikTokImpl extends TikTok4j {
 		String url = Configurations.JOKE_AI_TIKTOK_API_BASE_URL + "/category/list";
 		Map<String, Object> queryParameterMap = new LinkedHashMap<>();
 		queryParameterMap.put("cursor", cursor);
-		return HttpClientHelper.getHttpResponse(UrlHelper.addQueryStringToUrl(url, queryParameterMap)).get(KEY_DATA);
+		return HttpClientHelper.getHttpResponse(UrlHelper.addQueryParameterToUrl(url, queryParameterMap)).get(KEY_DATA);
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class JokeAITikTokImpl extends TikTok4j {
 		Map<String, Object> queryParameterMap = new LinkedHashMap<>();
 		queryParameterMap.put("ch_id", chId);
 		queryParameterMap.put("cursor", cursor);
-		return HttpClientHelper.getHttpResponse(UrlHelper.addQueryStringToUrl(url, queryParameterMap)).get(KEY_DATA);
+		return HttpClientHelper.getHttpResponse(UrlHelper.addQueryParameterToUrl(url, queryParameterMap)).get(KEY_DATA);
 	}
 
 	@Override
@@ -114,7 +114,7 @@ public class JokeAITikTokImpl extends TikTok4j {
 		String url = Configurations.JOKE_AI_TIKTOK_API_BASE_URL + "/challenge/detail";
 		Map<String, Object> queryParameterMap = new LinkedHashMap<>();
 		queryParameterMap.put("ch_id", chId);
-		return HttpClientHelper.getHttpResponse(UrlHelper.addQueryStringToUrl(url, queryParameterMap)).get(KEY_DATA);
+		return HttpClientHelper.getHttpResponse(UrlHelper.addQueryParameterToUrl(url, queryParameterMap)).get(KEY_DATA);
 	}
 
 	@Override
@@ -123,7 +123,7 @@ public class JokeAITikTokImpl extends TikTok4j {
 		Map<String, Object> queryParameterMap = new LinkedHashMap<>();
 		queryParameterMap.put("keyword", keyword);
 		queryParameterMap.put("cursor", cursor);
-		return HttpClientHelper.getHttpResponse(UrlHelper.addQueryStringToUrl(url, queryParameterMap)).get(KEY_DATA);
+		return HttpClientHelper.getHttpResponse(UrlHelper.addQueryParameterToUrl(url, queryParameterMap)).get(KEY_DATA);
 	}
 
 	@Override
@@ -132,7 +132,7 @@ public class JokeAITikTokImpl extends TikTok4j {
 		Map<String, Object> queryParameterMap = new LinkedHashMap<>();
 		queryParameterMap.put("keyword", keyword);
 		queryParameterMap.put("cursor", cursor);
-		return HttpClientHelper.getHttpResponse(UrlHelper.addQueryStringToUrl(url, queryParameterMap)).get(KEY_DATA);
+		return HttpClientHelper.getHttpResponse(UrlHelper.addQueryParameterToUrl(url, queryParameterMap)).get(KEY_DATA);
 	}
 
 	@Override
@@ -141,6 +141,6 @@ public class JokeAITikTokImpl extends TikTok4j {
 		Map<String, Object> queryParameterMap = new LinkedHashMap<>();
 		queryParameterMap.put("keyword", keyword);
 		queryParameterMap.put("cursor", cursor);
-		return HttpClientHelper.getHttpResponse(UrlHelper.addQueryStringToUrl(url, queryParameterMap)).get(KEY_DATA);
+		return HttpClientHelper.getHttpResponse(UrlHelper.addQueryParameterToUrl(url, queryParameterMap)).get(KEY_DATA);
 	}
 }

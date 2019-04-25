@@ -20,7 +20,7 @@ public class UrlHelper {
 	 * @param queryParameterMap
 	 * @return
 	 */
-	public static String addQueryStringToUrl(String url, Map<String, Object> queryParameterMap) {
+	public static String addQueryParameterToUrl(String url, Map<String, Object> queryParameterMap) {
 		try {
 			StringBuilder urlStringBuilder = new StringBuilder(url);
 			boolean first = true;
