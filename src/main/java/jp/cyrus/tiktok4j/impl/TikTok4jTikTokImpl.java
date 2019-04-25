@@ -4,7 +4,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.UUID;
 
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -19,6 +18,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import jp.cyrus.tiktok4j.TikTok4j;
 import jp.cyrus.tiktok4j.models.Device;
+import jp.cyrus.tiktok4j.models.Feed;
 import jp.cyrus.tiktok4j.signingServices.SigningService;
 import jp.cyrus.tiktok4j.utils.JsonHelper;
 import jp.cyrus.tiktok4j.utils.LogHelper;
@@ -65,12 +65,7 @@ public class TikTok4jTikTokImpl extends TikTok4j {
 	public Device deviceRegister() {
 		if (device == null) {
 			// Create dummy data
-			device = new Device();
-			device.newUser = 1;
-			device.installId = 6683748580261431000L;
-			device.deviceId = 6683746146131544000L;
-			device.ssid = UUID.randomUUID().toString();
-			device.serverTime = TikTokLogicHelper.getServerTime();
+			device = new DummyTikTokImpl().deviceRegister();
 		}
 		return device;
 	}
@@ -135,7 +130,7 @@ public class TikTok4jTikTokImpl extends TikTok4j {
 	}
 
 	@Override
-	public JsonNode feed() {
+	public Feed feed() {
 		// Get device info
 		Device device = deviceRegister();
 
@@ -156,7 +151,7 @@ public class TikTok4jTikTokImpl extends TikTok4j {
 		String signedUrl = signingService.signUrl(
 				urlWithParameter, TikTokLogicHelper.getServerTime(), device.deviceId);
 
-		return getHttpResponse(signedUrl);
+		return getHttpResponseAsValue(signedUrl, Feed.class);
 	}
 
 	/**
@@ -213,7 +208,7 @@ public class TikTok4jTikTokImpl extends TikTok4j {
 	 * @param url
 	 * @return
 	 */
-	private static JsonNode getHttpResponse(String url) {
+	private static JsonNode getHttpResponseAsJson(String url) {
 		try {
 			LogHelper.debug("Get : " + url);
 			HttpGet httpGet = new HttpGet(url);
@@ -234,6 +229,21 @@ public class TikTok4jTikTokImpl extends TikTok4j {
 				LogHelper.debug("response = " + responseString);
 				return JsonHelper.getObjectMapper().readTree(responseString);
 			}
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	/**
+	 * Get HTTP response.
+	 *
+	 * @param url
+	 * @param valueType
+	 * @return
+	 */
+	private static <T> T getHttpResponseAsValue(String url, Class<T> valueType) {
+		try {
+			return JsonHelper.getObjectMapper().readValue(getHttpResponseAsJson(url).toString(), valueType);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

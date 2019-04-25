@@ -8,7 +8,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import jp.cyrus.tiktok4j.TikTok4j;
 import jp.cyrus.tiktok4j.constants.Configurations;
 import jp.cyrus.tiktok4j.models.Device;
+import jp.cyrus.tiktok4j.models.Feed;
 import jp.cyrus.tiktok4j.utils.HttpClientHelper;
+import jp.cyrus.tiktok4j.utils.JsonHelper;
 import jp.cyrus.tiktok4j.utils.TikTokLogicHelper;
 import jp.cyrus.tiktok4j.utils.UrlHelper;
 
@@ -32,9 +34,15 @@ public class JokeAITikTokImpl extends TikTok4j {
 	}
 
 	@Override
-	public JsonNode feed() {
-		String url = Configurations.JOKE_AI_TIKTOK_API_BASE_URL + "/feed";
-		return HttpClientHelper.getHttpResponse(url).get(KEY_DATA);
+	public Feed feed() {
+		try {
+			String url = Configurations.JOKE_AI_TIKTOK_API_BASE_URL + "/feed";
+			return JsonHelper.getObjectMapper().readValue(
+					HttpClientHelper.getHttpResponse(url).get(KEY_DATA).toString(),
+					Feed.class);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	@Override

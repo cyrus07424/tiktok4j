@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import jp.cyrus.tiktok4j.impl.JokeAITikTokImpl;
 import jp.cyrus.tiktok4j.models.Device;
+import jp.cyrus.tiktok4j.models.Feed;
 
 /**
  * TikTok API.
@@ -44,7 +45,7 @@ public abstract class TikTok4j {
 	 *
 	 * @return
 	 */
-	public JsonNode feed() {
+	public Feed feed() {
 		throw new UnsupportedOperationException("Method not implemented.");
 	}
 

@@ -1,6 +1,7 @@
 package jp.cyrus.tiktok4j;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import jp.cyrus.tiktok4j.models.Aweme;
+import jp.cyrus.tiktok4j.models.Feed;
 
 /**
  * Get feed test.
@@ -21,7 +22,12 @@ public class GetFeedTest {
 		TikTok4j tikTok4j = TikTok4j.getDefaultInstance();
 
 		// Get feed data
-		JsonNode response = tikTok4j.feed();
-		System.out.println(response);
+		Feed feed = tikTok4j.feed();
+		System.out.println(feed);
+
+		for (Aweme ameme : feed.awemeList) {
+			System.out.println("awemeId=" + ameme.awemeId);
+			System.out.println("desc=" + ameme.desc);
+		}
 	}
 }
