@@ -4,11 +4,11 @@ package jp.cyrus.tiktok4j.models;
 import java.util.List;
 
 /**
- * Author.
+ * User.
  *
  * @author cyrus
  */
-public class Author {
+public class User {
 
 	public String uid;
 
@@ -108,7 +108,7 @@ public class Author {
 
 	public Integer schoolType;
 
-	public AuthorShareInfo shareInfo;
+	public UserShareInfo shareInfo;
 
 	public Boolean withCommerceEntry;
 

@@ -16,7 +16,7 @@ public class Aweme {
 
 	public Integer createTime;
 
-	public Author author;
+	public User author;
 
 	public Music music;
 

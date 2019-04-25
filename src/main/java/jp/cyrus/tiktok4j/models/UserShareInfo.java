@@ -2,11 +2,11 @@
 package jp.cyrus.tiktok4j.models;
 
 /**
- * Author ShareInfo.
+ * User ShareInfo.
  *
  * @author cyrus
  */
-public class AuthorShareInfo {
+public class UserShareInfo {
 
 	public String shareUrl;
 
