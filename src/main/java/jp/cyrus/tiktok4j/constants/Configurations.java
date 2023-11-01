@@ -10,7 +10,7 @@ public interface Configurations {
 	/**
 	 * Debug mode.
 	 */
-	boolean DEBUG_MODE = false;
+	boolean DEBUG_MODE = true;
 
 	/**
 	 * User Agent.
