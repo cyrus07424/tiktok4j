@@ -27,7 +27,7 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Add label
       uses: actions/github-script@v7
-      if: ${{ github.event_name == 'pull_request' && contains(github.head_ref, 'dependabot') }}
+      if: ${{ github.event_name == 'pull_request' && github.actor == 'dependabot[bot]' }}
       with:
         script: |
           github.rest.issues.addLabels({
